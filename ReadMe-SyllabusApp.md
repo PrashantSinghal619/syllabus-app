@@ -1,6 +1,6 @@
-Buffer Sheet
+#ReadMe
 
-Actions:
+##Actions:
 
 Add chapter
 Add topic
@@ -9,9 +9,10 @@ Edit topic
 Delete chapter
 Delete topic
 Show Modal
+Hide Modal
 
 
-State shape:
+##State shape:
 
 {
 	chapters: [
@@ -26,39 +27,34 @@ State shape:
 			}],
 		}
 	]
-	showModal: false,
-	itemType: "",
-	actionType: "",
-	itemId: "",
-	secondaryId: "",
-	standard: "",
-	subject: "",
+	modal: {
+		showModal: false,
+		itemType: "",
+		actionType: "",
+		itemId: "",
+		secondaryId: "",
+	}
+	syllabus: {
+		standard: "",
+		subject: "",
+	}
 }
 
 
-State slices:
+##State slices:
 
-Slice 1 - Chapter (minus Topics):
+###Slice 1 - Chapter (minus Topics):
 {
-	chapters: [{
+	[{
 		id,
 		name,
 		standard,
 		subject,
+		topics: []
 	}]
 }
 
-Slice 2 - Topics:
-{
-	chapters: [{
-		topics: [{
-			id,
-			name,
-		}]
-	}]
-}
-
-Slice 3 - Modal:
+###Slice 2 - Modal:
 {
 	showModal,
 	itemType,
@@ -67,7 +63,15 @@ Slice 3 - Modal:
 	secondaryId,
 }
 
-Components:
+###Slice 3 - Syllabus:
+{
+	{
+		standard: "",
+		subject: "",
+	}
+}
+
+##Components:
 
 SyllabusApp
 ChapterList
@@ -77,8 +81,7 @@ TopicItem
 Modal
 
 
-Containers:
+##Containers:
 
+SyllabusControl
 SyllabusTable
-AddForm
-EditForm
