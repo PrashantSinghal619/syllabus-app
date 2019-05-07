@@ -43,7 +43,7 @@ Hide Modal
 
 ##State slices:
 
-###Slice 1 - Chapter (minus Topics):
+###Slice 1 - Chapters:
 {
 	[{
 		id,

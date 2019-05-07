@@ -14,7 +14,7 @@ const chapters = (state = [], action) => {
 					subject: action.subject,
 					topics: [],
 				}
-			]
+			];
 
 		case 'EDIT_CHAPTER':
 			return _.map(chapters, (chapter) => 
@@ -27,26 +27,21 @@ const chapters = (state = [], action) => {
 			return chapters;
 
 		case 'ADD_TOPIC': {
-			const index = _.findIndex(chapters, chapter => chapter.id === action.chapterId);
+			const index = findItemIndex(chapters, action.chapterId);
 			if (index !== -1)
 				chapters[index].topics = [...chapters[index].topics, {id: action.id, name: action.text}];
 			return _.cloneDeep(chapters);
 		}
 
 		case 'EDIT_TOPIC': {
-			return _.map(_.cloneDeep(chapters), (chapter) => {
-				if (chapter.id === action.chapterId) {
-					chapter.topics = _.map(chapter.topics, (topic) =>
-						(topic.id === action.id) ?
-							{...topic, name: action.text} :
-							topic
-					);
-					return chapter;
-				}
-				else {
-					return chapter;
-				}
-			});
+			const chapterIndex = findItemIndex(chapters, action.chapterId);
+			const chapter = chapters[chapterIndex];
+			const topics = chapter.topics;
+			const topicIndex = findItemIndex(topics, action.id);
+			topics[topicIndex].name = action.text;
+			chapter.topics = topics;
+
+			return _.cloneDeep(chapters);
 		}
 
 		case 'DELETE_TOPIC':
@@ -55,7 +50,7 @@ const chapters = (state = [], action) => {
 			const survivingTopics = [...chapter.topics];
 			_.remove(survivingTopics, ['id', action.id]);
 			chapter.topics = survivingTopics;
-			return chapters;
+			return _.cloneDeep(chapters);
 
 		default:
 			return state;

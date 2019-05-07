@@ -59,7 +59,7 @@ const ModalWrapper = ({showModal, itemType, actionType, itemId, secondaryId, sta
 }
 
 const mapStateToProps = (state) => {
-	let currentValue;
+	let currentValue = "";
 	if (state.modal.itemType === "chapter" && state.modal.itemId) {
 		const chapterIndex = findItemIndex(state.chapters, state.modal.itemId);
 		const chapter = state.chapters[chapterIndex];
@@ -69,8 +69,10 @@ const mapStateToProps = (state) => {
 		const chapterIndex = findItemIndex(state.chapters, state.modal.secondaryId);
 		const chapter = state.chapters[chapterIndex];
 		const topicIndex = findItemIndex(chapter.topics, state.modal.itemId);
-		const topic = chapter.topics[topicIndex];
-		currentValue = topic.name;
+		if (topicIndex !== -1) {
+			const topic = chapter.topics[topicIndex];
+			currentValue = topic.name;
+		}
 	}
 	return {
 		showModal: state.modal.showModal,
