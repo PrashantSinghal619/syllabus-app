@@ -1,0 +1,101 @@
+/**
+ * Styling sheet for Syllabus App
+ */
+
+/* Syllabus app main container */
+
+.syllabus-app {
+  margin-top: 50px;
+  border: .2rem solid #ececec;
+  border-radius: 8px;
+  padding: 20px;
+  overflow: hidden;
+  background-color: #fbfbfb;
+}
+
+/* Syllabus app enquiry form */
+
+.syllabus-app-form {
+  margin-bottom: 20px;
+}
+
+.syllabus-app-heading {
+  font-family: 'Raleway', sans-serif;
+  padding-bottom: 30px;
+}
+
+.syllabus-go-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.syllabus-go {
+  max-width: 70%;
+}
+
+/* Syllabus enquiry results table */
+
+table.syllabus-container th.chapter-list-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+table.syllabus-container div.chapter-list-heading-wrapper {
+  display: inline-block;
+  width: 70%;
+  vertical-align: middle;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+table.syllabus-container .chapter-item-wrapper, .topic-item-wrapper {
+  display: flex;
+  align-items: center;
+  line-height: 250%;
+
+}
+
+table.syllabus-container th.topic-list-heading, td.chapter-item {
+  vertical-align: middle;
+  text-align: center;
+}
+
+table.syllabus-container span.chapter-title, span.topic-name {
+  max-width: 450px;
+  min-width: 100px;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 360px) {
+  table.syllabus-container span.chapter-title, span.topic-name {
+    max-width: 150px;
+  }
+}
+
+table.syllabus-container span[class$="-actions"] {
+  margin-left: auto;
+  display: flex;
+}
+
+table.syllabus-container span[class$="-actions"] > button {
+  margin-right: 5px;
+}
+
+table.syllabus-container .topic-list > ol {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+table.syllabus-container button.topic-add {
+  float: right;
+  margin-top: 10px;
+}

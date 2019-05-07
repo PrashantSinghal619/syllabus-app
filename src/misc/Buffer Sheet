@@ -1,0 +1,84 @@
+Buffer Sheet
+
+Actions:
+
+Add chapter
+Add topic
+Edit chapter
+Edit topic
+Delete chapter
+Delete topic
+Show Modal
+
+
+State shape:
+
+{
+	chapters: [
+		{
+			id: moment().format(),
+			name: "",
+			standard: "",
+			subject: "",
+			topics: [{
+				id: moment().format(),
+				name: "",
+			}],
+		}
+	]
+	showModal: false,
+	itemType: "",
+	actionType: "",
+	itemId: "",
+	secondaryId: "",
+	standard: "",
+	subject: "",
+}
+
+
+State slices:
+
+Slice 1 - Chapter (minus Topics):
+{
+	chapters: [{
+		id,
+		name,
+		standard,
+		subject,
+	}]
+}
+
+Slice 2 - Topics:
+{
+	chapters: [{
+		topics: [{
+			id,
+			name,
+		}]
+	}]
+}
+
+Slice 3 - Modal:
+{
+	showModal,
+	itemType,
+	actionType,
+	itemId,
+	secondaryId,
+}
+
+Components:
+
+SyllabusApp
+ChapterList
+ChapterItem
+TopicList
+TopicItem
+Modal
+
+
+Containers:
+
+SyllabusTable
+AddForm
+EditForm
