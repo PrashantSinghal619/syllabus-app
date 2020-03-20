@@ -1,5 +1,10 @@
 #ReadMe
 
+- If node_modules directory is missing, run following commands in project root:
+> npm install
+- To start the server, use:
+> npm start
+
 ##Actions:
 
 Add chapter
